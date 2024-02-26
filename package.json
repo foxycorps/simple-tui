@@ -1,4 +1,32 @@
 {
-  "name": "ui-engine",
-  "packageManager": "yarn@4.1.0"
+  "name": "@foxycorps/simple-tui",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/foxycorps/simple-tui"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "node": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "packageManager": "yarn@4.1.0",
+  "devDependencies": {
+    "@types/node": "^20.11.20",
+    "terser": "^5.28.1",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  }
 }
