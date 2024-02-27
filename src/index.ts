@@ -63,7 +63,7 @@ export default class UIEngine {
     public static display() {
         clear();
 
-        this.screenStack[this.currentMenu].render();
+        UIEngine.screenStack[UIEngine.currentMenu].render();
     }
 
     private static async handleKeyPress(key: string) {
