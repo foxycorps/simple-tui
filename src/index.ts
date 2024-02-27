@@ -87,7 +87,7 @@ export default class UIEngine {
 
     public static rerenderOn(events: string[]): void {
       for (const event of events) {
-        this.listener.on(event, {
+        this.listener.on(event, () => {
           UIEngine.display();
         })
       }
