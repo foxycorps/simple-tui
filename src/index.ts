@@ -21,6 +21,10 @@ export default class UIEngine {
         this.screenStack.unshift(screen);
     }
 
+    public static registerListener(listener: any): void {
+      this.listener = listener;
+    }
+
     public static changeScreen(screenPosition: number |  string) {
         if (typeof screenPosition === "string") {
             // We will loop through the stack and find the screen that matches the name.
@@ -79,6 +83,14 @@ export default class UIEngine {
 
         // We are now going to use the key handler from the current screen.
         UIEngine.keyHandler(key);
+    }
+
+    public static rerenderOn(events: string[]): void {
+      for (const event of events) {
+        this.listener.on(event, {
+          UIEngine.display();
+        })
+      }
     }
 }
 
